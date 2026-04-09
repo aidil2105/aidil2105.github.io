@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A polished landing page celebrating Kuala Terengganu - heritage, food, islands, and the east coast charm of Malaysia." />
+  <meta name="theme-color" content="#ff5a5f" />
+  <meta property="og:title" content="Kuala Terengganu" />
+  <meta property="og:description" content="Heritage on the river, islands on the horizon, and the best plate of nasi dagang you will not forget." />
+  <meta property="og:type" content="website" />
+  <title>Kuala Terengganu | East Coast, Softly Reimagined</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fffaf7;
+      --surface: rgba(255, 255, 255, 0.78);
+      --surface-strong: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: rgba(31, 41, 55, 0.08);
+      --accent: #ff5a5f;
+      --accent-2: #f97316;
+      --sea: #0f766e;
+      --sky: #3b82f6;
+      --sand: #f5e7d3;
+      --shadow: 0 24px 80px rgba(15, 23, 42, 0.10), 0 3px 12px rgba(15, 23, 42, 0.05);
+      --shadow-soft: 0 12px 32px rgba(15, 23, 42, 0.08);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 90, 95, 0.10), transparent 28%),
+        radial-gradient(circle at 90% 10%, rgba(59, 130, 246, 0.10), transparent 24%),
+        linear-gradient(180deg, #fffdfc 0%, var(--bg) 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.15;
+      mix-blend-mode: soft-light;
+      background-image:
+        linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)),
+        radial-gradient(circle at 1px 1px, rgba(17,24,39,.18) 1px, transparent 0);
+      background-size: 100% 100%, 12px 12px;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 250, 247, 0.72);
+      border-bottom: 1px solid rgba(31, 41, 55, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: 1.05rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 1rem;
+      background: linear-gradient(135deg, var(--accent), #ff8a8f 50%, var(--accent-2));
+      box-shadow: 0 14px 30px rgba(255, 90, 95, 0.34);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: color .25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: #111827;
+      color: white;
+      box-shadow: var(--shadow-soft);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .cta:hover,
+    .cta:focus-visible {
+      transform: translateY(-2px);
+      background: #0b1220;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+    }
+
+    .hero {
+      padding: 42px 0 24px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .95fr;
+      gap: 28px;
+      align-items: center;
+      min-height: calc(100vh - 110px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 90, 95, 0.10);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .92rem;
+      letter-spacing: -0.02em;
+      width: fit-content;
+    }
+
+    .eyebrow span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255, 90, 95, 0.12);
+    }
+
+    h1 {
+      margin: 20px 0 18px;
+      font-size: clamp(3.2rem, 7vw, 6.3rem);
+      line-height: .94;
+      letter-spacing: -0.08em;
+      text-wrap: balance;
+    }
+
+    .lead {
+      font-size: clamp(1.08rem, 1.8vw, 1.25rem);
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 60ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(31, 41, 55, 0.10);
+      background: rgba(255,255,255,0.65);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+      font-weight: 700;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .ghost:hover,
+    .ghost:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(255, 90, 95, 0.22);
+      background: white;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(31, 41, 55, 0.08);
+      color: #334155;
+      font-size: .92rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .showcase {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      inset: 36px;
+      border-radius: 40px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.78), rgba(255,255,255,0.16) 58%, rgba(255,255,255,0.06) 100%),
+        linear-gradient(145deg, rgba(15, 118, 110, 0.84), rgba(59, 130, 246, 0.84) 45%, rgba(255, 90, 95, 0.82));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      filter: blur(8px);
+    }
+
+    .orbit::before {
+      width: 320px;
+      height: 320px;
+      top: -80px;
+      right: -70px;
+    }
+
+    .orbit::after {
+      width: 240px;
+      height: 240px;
+      bottom: -90px;
+      left: -70px;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 18px;
+      border-radius: 30px;
+      overflow: hidden;
+      background: #0f172a;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+    }
+
+    .hero-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(8, 15, 29, 0.12), rgba(8, 15, 29, 0.5)),
+        url("https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1200&q=80") center/cover;
+      transform: scale(1.04);
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.45));
+    }
+
+    .photo-grid {
+      position: absolute;
+      inset: auto 28px 28px 28px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items: end;
+      z-index: 2;
+    }
+
+    .feature-card,
+    .mini-card {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.22);
+      overflow: hidden;
+    }
+
+    .feature-card {
+      padding: 18px;
+    }
+
+    .feature-card h3,
+    .mini-card h4,
+    .section-title h2,
+    .headline {
+      margin: 0;
+      letter-spacing: -0.05em;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .feature-card p,
+    .mini-card p,
+    .card p,
+    .timeline p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: .98rem;
+    }
+
+    .mini-card {
+      padding: 16px;
+    }
+
+    .mini-card h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .mini-metrics {
+      display: flex;
+      gap: 14px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.70);
+      border: 1px solid rgba(31,41,55,0.08);
+      font-size: .88rem;
+      color: #334155;
+      font-weight: 700;
+    }
+
+    .metric b {
+      color: var(--accent);
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: .98;
+      max-width: 11ch;
+    }
+
+    .section-title p {
+      margin: 0;
+      max-width: 56ch;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(31,41,55,0.08);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      padding: 20px;
+      min-height: 210px;
+    }
+
+    .card .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 90, 95, 0.10);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .84rem;
+      margin-bottom: 16px;
+    }
+
+    .card .tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      letter-spacing: -0.05em;
+    }
+
+    .card .illus {
+      position: absolute;
+      right: -18px;
+      top: -18px;
+      width: 120px;
+      height: 120px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(255, 90, 95, 0.20), rgba(15, 118, 110, 0.20));
+      filter: blur(0);
+      opacity: .9;
+      transform: rotate(14deg);
+    }
+
+    .card .illus.two {
+      top: auto;
+      bottom: -20px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.18), rgba(249,115,22,0.18));
+      transform: rotate(-10deg);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      border-radius: var(--radius-xl);
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(31,41,55,0.08);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 22px 24px 0;
+    }
+
+    .panel-header h3 {
+      margin: 0;
+      font-size: 1.45rem;
+      letter-spacing: -0.05em;
+    }
+
+    .panel-header p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .timeline {
+      padding: 14px 24px 24px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 78px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(31,41,55,0.08);
+    }
+
+    .step:first-child { border-top: 0; }
+
+    .clock {
+      font-size: .84rem;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .step h4 {
+      margin: 0 0 7px;
+      font-size: 1.08rem;
+      letter-spacing: -0.04em;
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .spot {
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(31,41,55,0.08);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      flex: none;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--sea), var(--sky));
+    }
+
+    .spot h4 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+      letter-spacing: -0.04em;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(15, 118, 110, 0.08);
+      color: #0f766e;
+      font-weight: 700;
+      font-size: .86rem;
+    }
+
+    .quote {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255, 90, 95, 0.10), rgba(15, 118, 110, 0.08));
+      border: 1px solid rgba(31,41,55,0.08);
+    }
+
+    .quote strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .footer-cta {
+      padding: 24px;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 32%),
+        linear-gradient(135deg, #111827 0%, #0f766e 55%, #ff5a5f 100%);
+      color: white;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-cta h3 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      letter-spacing: -0.06em;
+    }
+
+    .footer-cta p {
+      margin: 0;
+      opacity: .92;
+      max-width: 58ch;
+      line-height: 1.65;
+    }
+
+    .footer-cta .cta {
+      background: white;
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .footer-cta .cta:hover,
+    .footer-cta .cta:focus-visible {
+      background: #fff6f6;
+    }
+
+    .footer {
+      padding: 24px 0 42px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-animate {
+      animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .split,
+      .grid-3,
+      .footer-cta {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .showcase {
+        min-height: 620px;
+      }
+
+      .section-title {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .hero { padding-top: 18px; }
+      .hero-grid { min-height: auto; }
+      .showcase { min-height: 520px; }
+      .orbit { inset: 0; border-radius: 30px; }
+      .photo-grid {
+        grid-template-columns: 1fr;
+        inset: auto 16px 16px 16px;
+      }
+      .mini-card:last-child { display: none; }
+      .step { grid-template-columns: 1fr; gap: 8px; }
+      .footer-cta { padding: 22px; }
+      .footer-cta .cta { width: 100%; justify-content: center; }
+      h1 { font-size: clamp(2.9rem, 14vw, 4.7rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Kuala Terengganu home">
+          <span class="brand-mark">KT</span>
+          <span>Kuala Terengganu</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#highlights">Highlights</a>
+          <a href="#itinerary">Itinerary</a>
+          <a href="#food">Food</a>
+          <a href="#tips">Tips</a>
+        </nav>
+        <a class="cta" href="#plan">Plan the trip →</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="reveal">
+            <div class="eyebrow"><span></span> Terengganu, Malaysia</div>
+            <h1>A seaside city where heritage still breathes.</h1>
+            <p class="lead">
+              Kuala Terengganu is where mosque domes meet river light, where the food is loud in the best way,
+              and where island escapes start with a short drive and a very good breakfast.
+            </p>
+            <div class="hero-actions">
+              <a class="cta" href="#highlights">Explore the city</a>
+              <a class="ghost" href="#food">Taste the east coast</a>
+            </div>
+            <div class="hero-meta" aria-label="Quick facts">
+              <div class="pill">Heritage by the river</div>
+              <div class="pill">Gateway to islands</div>
+              <div class="pill">Nasi dagang energy only</div>
+            </div>
+          </div>
+
+          <div class="showcase hero-animate reveal">
+            <div class="orbit"></div>
+            <div class="hero-photo"></div>
+            <div class="photo-grid">
+              <div class="feature-card">
+                <h3>Morning on the waterfront</h3>
+                <p>
+                  Start with soft light, then drift toward markets, mosques, and the kind of views that make
+                  you slow your pace without trying.
+                </p>
+                <div class="mini-metrics">
+                  <span class="metric"><b>1</b> river city</span>
+                  <span class="metric"><b>3</b> travel moods</span>
+                  <span class="metric"><b>∞</b> snack stops</span>
+                </div>
+              </div>
+              <div class="mini-card">
+                <h4>Best vibe</h4>
+                <p>Warm, coastal, and a little cinematic. The city wears its history very well.</p>
+                <div class="chips">
+                  <span class="chip">Culture</span>
+                  <span class="chip">Food</span>
+                  <span class="chip">Sea breeze</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="highlights">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2>Three reasons this city punches above its weight.</h2>
+            </div>
+            <p>
+              Kuala Terengganu is compact enough to explore without a fuss, but layered enough to keep surprising you.
+              Heritage streets, serious food, and coastal escapes all live in the same orbit.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="illus"></div>
+              <div class="tag">Heritage</div>
+              <h3>Old streets with actual character</h3>
+              <p>
+                From Chinese shophouses to riverfront landmarks, the city feels lived-in, not staged.
+                It is the kind of place where a slow walk becomes the point.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="illus two"></div>
+              <div class="tag">Architecture</div>
+              <h3>Mosques that glow at golden hour</h3>
+              <p>
+                Crystal Mosque, Floating Mosque, and the city’s waterfront silhouette give Kuala Terengganu a visual
+                identity that is calm, elegant, and quietly dramatic.
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="illus"></div>
+              <div class="tag">Coastline</div>
+              <h3>Easy access to islands and beaches</h3>
+              <p>
+                You do not need a complicated plan to chase the water here. Beaches, islands, and boat routes are all
+                part of the day-trip menu.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="itinerary">
+        <div class="container split">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>A perfect Kuala Terengganu day</h3>
+              <p>
+                If you only have one day, this is the cleanest route. No chaos. No overplanning. Just a sensible,
+                beautifully paced day.
+              </p>
+            </div>
+            <div class="timeline">
+              <div class="step">
+                <div class="clock">07:30</div>
+                <div>
+                  <h4>Breakfast like you mean it</h4>
+                  <p>Nasi dagang, kuih, and kopi. Start with something local, then let the city wake up around you.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="clock">10:00</div>
+                <div>
+                  <h4>Heritage and riverfront wandering</h4>
+                  <p>Walk the old quarters, pause by the waterfront, and let the architecture do the heavy lifting.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="clock">13:00</div>
+                <div>
+                  <h4>Market lunch and a strategic dessert</h4>
+                  <p>Pasar Payang is where shopping, snacking, and people-watching all become one very acceptable hobby.</p>
+                </div>
+              </div>
+              <div class="step">
+                <div class="clock">17:30</div>
+                <div>
+                  <h4>Sunset by the mosque or the sea</h4>
+                  <p>Choose your mood: iconic dome reflections, or a horizon with a little more salt in the air.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="food">
+            <div class="panel-header">
+              <h3>The food deserves its own spotlight</h3>
+              <p>
+                If a city can be judged by what it serves at breakfast and supper, Kuala Terengganu passes with
+                suspicious ease.
+              </p>
+            </div>
+            <div class="timeline list">
+              <div class="spot">
+                <div class="icon">ND</div>
+                <div>
+                  <h4>Nasi dagang</h4>
+                  <p>The non-negotiable. Fragrant rice, rich curry, and the sort of comfort food that has jurisdiction.</p>
+                </div>
+              </div>
+              <div class="spot">
+                <div class="icon">KT</div>
+                <div>
+                  <h4>Keropok lekor and friends</h4>
+                  <p>Best eaten fresh, hot, and without pretending you will stop at one portion. You will not.</p>
+                </div>
+              </div>
+              <div class="spot">
+                <div class="icon">KU</div>
+                <div>
+                  <h4>Kuih, coconut, and coastal sweets</h4>
+                  <p>Perfect for the “I just wanted one bite” phase, which never lasts very long.</p>
+                </div>
+              </div>
+            </div>
+            <div class="quote">
+              <strong>Travel note:</strong>
+              <span>Come hungry, leave slightly humbled, and definitely plan room for a second snack run.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="tips">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2>Practical, not preachy.</h2>
+            </div>
+            <p>
+              The city is easy to enjoy when you keep the plan simple: light clothes, flexible timing, and a little
+              respect for prayer times and local rhythm.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="tag">Move</div>
+              <h3>Base yourself near the city center</h3>
+              <p>
+                Most highlights are close enough to pair together. That means less time on logistics and more time
+                on actual life.
+              </p>
+            </article>
+            <article class="card">
+              <div class="tag">Best season</div>
+              <h3>Keep an eye on the weather</h3>
+              <p>
+                East coast rain can be dramatic. Build a little buffer into your day and let the weather be the one
+                improvising, not you.
+              </p>
+            </article>
+            <article class="card">
+              <div class="tag">Photo op</div>
+              <h3>Golden hour is the cheat code</h3>
+              <p>
+                The waterfront, mosques, and old streets all soften beautifully at sunset. If you take one photo slot,
+                make it that one.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="plan">
+        <div class="container">
+          <div class="footer-cta reveal">
+            <div>
+              <h3>Ready to put Kuala Terengganu on the shortlist?</h3>
+              <p>
+                This is a city for slow travelers, food-first wanderers, and anyone who likes their history with a sea
+                breeze and a good plate of something fried.
+              </p>
+            </div>
+            <a class="cta" href="#top">Back to top ↑</a>
+          </div>
+          <div class="footer">
+            Built for the east coast, styled like it means business. Kuala Terengganu, Malaysia.
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('in-view');
+      });
+    }, { threshold: 0.16 });
+    revealEls.forEach((el) => obs.observe(el));
+  </script>
+</body>
+</html>
