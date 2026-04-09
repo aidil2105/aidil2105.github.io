@@ -332,14 +332,40 @@
       pointer-events: none;
     }
 
-    .photo-grid {
+    .hero-thumbs {
       position: absolute;
-      inset: auto 28px 28px 28px;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 16px;
-      align-items: stretch;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
       z-index: 2;
+    }
+
+    .thumb {
+      margin: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .thumb img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .thumb figcaption {
+      padding: 8px 10px;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #111827;
+      background: rgba(255, 255, 255, 0.86);
+      letter-spacing: -.01em;
     }
 
     .hero-credit {
@@ -774,7 +800,7 @@
         min-height: 480px;
       }
 
-      .photo-grid {
+      .hero-thumbs {
         grid-template-columns: 1fr;
       }
 
@@ -786,9 +812,11 @@
       .hero-grid { min-height: auto; }
       .showcase { min-height: 520px; }
       .orbit { inset: 0; border-radius: 30px; }
-      .photo-grid {
+      .hero-thumbs {
         grid-template-columns: 1fr;
-        inset: auto 16px 16px 16px;
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
       }
       .step { grid-template-columns: 1fr; gap: 8px; }
       .footer-cta { padding: 22px; }
@@ -851,35 +879,19 @@
             <div class="hero-photo">
               <img class="hero-bg" src="./assets/kt/drawbridge-2024.jpg" alt="Kuala Terengganu Drawbridge at sunrise" loading="eager" fetchpriority="high">
               <div class="hero-credit">Recent 2024 photos from Wikimedia Commons</div>
-              <div class="photo-grid">
-                <div class="feature-card">
-                  <img class="card-media" src="./assets/kt/waterfront-2024.jpg" alt="Kuala Terengganu Waterfront in 2024" loading="lazy" decoding="async">
-                  <div class="card-copy">
-                    <h3>Morning on the waterfront</h3>
-                    <p>
-                      Recent riverfront frames, fresh light, and the city’s easygoing pace all in one frame.
-                    </p>
-                    <div class="mini-metrics">
-                      <span class="metric"><b>2024</b> city shots</span>
-                      <span class="metric"><b>1</b> riverfront</span>
-                      <span class="metric"><b>∞</b> photo stops</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="mini-card">
-                  <img class="card-media" src="./assets/kt/pasar-payang-2024.jpg" alt="Pasar Besar Kedai Payang in Kuala Terengganu" loading="lazy" decoding="async">
-                  <div class="card-copy">
-                    <h4>Latest city details</h4>
-                    <p>
-                      Fresh 2024 shots of Kuala Terengganu, from the new Pasar Payang to the river and palace district.
-                    </p>
-                    <div class="chips">
-                      <span class="chip">Drawbridge</span>
-                      <span class="chip">Pasar Payang</span>
-                      <span class="chip">City centre</span>
-                    </div>
-                  </div>
-                </div>
+              <div class="hero-thumbs" aria-label="Recent Kuala Terengganu photos">
+                <figure class="thumb">
+                  <img src="./assets/kt/waterfront-2024.jpg" alt="Kuala Terengganu Waterfront in 2024" loading="lazy" decoding="async">
+                  <figcaption>Waterfront</figcaption>
+                </figure>
+                <figure class="thumb">
+                  <img src="./assets/kt/pasar-payang-2024.jpg" alt="Pasar Besar Kedai Payang in Kuala Terengganu" loading="lazy" decoding="async">
+                  <figcaption>Pasar Payang</figcaption>
+                </figure>
+                <figure class="thumb">
+                  <img src="./assets/kt/istana-maziah-2024.jpg" alt="Istana Maziah gate in Kuala Terengganu" loading="lazy" decoding="async">
+                  <figcaption>Istana Maziah</figcaption>
+                </figure>
               </div>
             </div>
           </div>
