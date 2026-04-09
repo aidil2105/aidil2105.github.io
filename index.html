@@ -686,7 +686,6 @@
     }
 
     @media (max-width: 1080px) {
-      .hero-grid,
       .split,
       .grid-3,
       .footer-cta {
@@ -704,6 +703,24 @@
       }
 
       .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase {
+        min-height: 480px;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-card:last-child {
         display: none;
       }
     }
